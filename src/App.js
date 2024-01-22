@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Menu />
+      <Footer />
+    </div>
+  );
+}
+
+function Header() {
+  return <h1>Big Pizza</h1>;
+}
+
+function Menu() {
+  return (
+    <div>
+      <h2>Menu</h2>
+      <Pizza />
+      <Pizza />
+      <Pizza />
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer>{new Date().toLocaleTimeString()}, We're currently open!</footer>
+  );
+}
+
+function Pizza() {
+  return (
+    <div>
+      <img src="public/pizzas/spinaci.jpg" alt="pizza" />
+      <h2>Pizza Spinaci</h2>
     </div>
   );
 }
