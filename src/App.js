@@ -1,5 +1,4 @@
 import './App.css';
-import { ReactDOM } from 'react';
 import './index.css';
 
 const pizzaData = [
@@ -60,7 +59,7 @@ function App() {
 function Header() {
   return (
     <header className="header">
-      <h1>Big Pizza</h1>
+      <h1>Mario&apos;s Pizza</h1>
     </header>
   );
 }
@@ -69,38 +68,31 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza
-        title="Pizza Spinaci"
-        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
-        imgUrl="pizzas/spinaci.jpg"
-        price={10}
-      />
-      <Pizza
-        title="Pizza Funghi"
-        ingredients="Tomato, mushrooms, cheese"
-        imgUrl="pizzas/funghi.jpg"
-        price={9}
-      />
+      <ul className="pizzas">
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObj={pizza} key={pizza.name} />
+        ))}
+      </ul>
     </main>
   );
 }
 
 function Pizza(props) {
   return (
-    <div className="pizza">
-      <img src={props.imgUrl} alt={props.title} />
+    <li className="pizza">
+      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
       <div>
-        <h3>{props.title}</h3>
-        <p>{props.ingredients}</p>
-        <span>{props.price + 2}</span>
+        <h3>{props.pizzaObj.name}</h3>
+        <p>{props.pizzaObj.ingredients}</p>
+        <span>{props.pizzaObj.price + 2}</span>
       </div>
-    </div>
+    </li>
   );
 }
 
 function Footer() {
   const hour = new Date().getHours();
-  const openHour = 12;
+  const openHour = 11;
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
 
