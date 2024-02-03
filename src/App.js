@@ -59,7 +59,7 @@ function App() {
 function Header() {
   return (
     <header className="header">
-      <h1>Mario&apos;s Pizza</h1>
+      <h1>Luca&apos;s Pizza</h1>
     </header>
   );
 }
@@ -98,8 +98,15 @@ function Footer() {
 
   return (
     <footer className="footer">
-      {new Date().toLocaleTimeString()},{' '}
-      {isOpen ? "We're currently open!" : "We're currently closed"}
+      <div className="order">
+        <p>
+          {new Date().toLocaleTimeString()},{' '}
+          {isOpen
+            ? "We're currently open! Come visit us or order online"
+            : "We're currently closed"}
+        </p>
+        {isOpen && <button className="btn">Order</button>}
+      </div>
     </footer>
   );
 }
