@@ -78,13 +78,15 @@ function Menu() {
 }
 
 function Pizza(props) {
+  const { photoName, name, ingredients, price, soldOut } = props.pizzaObj;
+
   return (
-    <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+    <li className={`pizza ${soldOut ? 'sold-out' : ''}`}>
+      <img src={photoName} alt={name} />
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price + 2}</span>
+        <h3>{name}</h3>
+        <p>{ingredients}</p>
+        <span>{soldOut ? ' SOLD OUT' : price + 2}</span>
       </div>
     </li>
   );
